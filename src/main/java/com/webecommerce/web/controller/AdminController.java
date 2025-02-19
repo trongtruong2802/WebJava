@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class AdminController {
 
-    @A
+    
     //localhost:5000/admin
     @GetMapping("/")
     public String admin() {
@@ -28,5 +28,6 @@ public class AdminController {
     public String category() {
         return "/admin/category";
     }
+    
     
 }

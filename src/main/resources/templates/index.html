@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -98,7 +98,10 @@
             </div>
         </div>
     </div>
+
+
     <div class="container">
+        <!-- danh mục -->
         <div class="row align-items-center margin-down">
             <div class="col-md-6">
                 <h3>Smartphone</h3>
@@ -107,43 +110,27 @@
                 <h5>See All</h5>
             </div>
         </div>
+        <!-- sản phẩm-->
         <div class="container first">
+
+               <!-- đổ sản phẩm -->
             <div class="card-deck">
-                <div class="card">
-                    <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
+                <div class="card" th:each="product : ${products}">
+                    <img th:src="@{'/images/phone/'+${product.image}}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
-                        <h5 class="card-title">Iphone 11 pro</h5>
-                        <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                            design, various options, battery durability and 2 years service warantee.</p>
-                        <h6>$999</h6>
+                        <h5 class="card-title" th:text="${product.name}"></h5>
+                        <p class="card-text" th:text="${product.introduce}"></p>
+                        <h6 th:text="|$${product.price}|"></h6>
                         <button class="button-color">Buy Now →</button>
                     </div>
-                </div>
-                <div class="card">
-                    <img src="images/phone/phone-2.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Samsung Galaxy Note10+</h5>
-                        <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                            design, various options, battery durability and 2 years service warantee.</p>
-                        <h6>$999</h6>
-                        <button class="button-color">Buy Now →</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/phone/phone-3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Huwai P20</h5>
-                        <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                            design, various options, battery durability and 2 years service warantee.</p>
-                        <h6>$999</h6>
-                        <button class="button-color">Buy Now →</button>
-                    </div>
-                </div>
+                </div>               
+                
+
             </div>
 
         </div>
 
-
+<!--danh mục -->
         <div class="row align-items-center margin-down">
             <div class="col-md-6">
                 <h3>Laptop</h3>
