@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class HomeController {
 	@GetMapping("/")
 	public String home(Model m) {
+		
 		List<Product> product = productservices.getAllproduct();
         m.addAttribute("products", product);
 		return "index";
