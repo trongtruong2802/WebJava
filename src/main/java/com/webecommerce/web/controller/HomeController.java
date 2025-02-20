@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
+	
 	@GetMapping("/")
 	public String home() {
 		return "index";
@@ -30,5 +31,8 @@ public class HomeController {
 		return "view_product";
 	}
 	
-	
+	@GetMapping("/product_laptop")
+	public String product_laptop() {
+		return "product_laptop";
+	}
 }

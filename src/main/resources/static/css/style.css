@@ -427,6 +427,24 @@ p.auth-sgt {
     }
 }
 
+.view_product{
+    background-color: #919eab;
+    height: auto;
+    width: 100%;
+}
+
+.view_product_img{
+    height: 300px;
+    width: 200px;
+    background-color: #d30015;
+    float: left;
+}
+.view_product_inf{
+    height: 300px;
+    width: 200px;
+    background-color: #d30015;
+    float: right;
+}
 footer {
     color: orchid;
     text-align: center;
