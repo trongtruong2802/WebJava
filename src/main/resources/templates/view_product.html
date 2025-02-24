@@ -47,13 +47,98 @@
     <div class="container">
         <div class="view_product">
             <div class="view_product_img">
-                <img src="images/phone/phone-2.png" alt="">
+                <img src="images/phone/phone-2.png" id="main-product-img" alt="Main product">
+
+
+                <div class="view_product_gallare">
+                    <img src="images/laptop/product-1.png" style="height: 50px" alt="Thumbnail 1">
+                    <img src="images/phone/phone-2.png" style="height: 50px" alt="Thumbnail 2">
+                    <img src="images/phone/phone-2.png" style="height: 50px" alt="Thumbnail 3">
+                </div>
+
             </div>
             <div class="view_product_inf">
-                klhnkl
+                <h2 class="view_product_title">Tên sản phẩm</h2>
+                <p class="view_product_description">
+                    Đây là nội dung mô tả sản phẩm. Thông tin chi tiết về sản phẩm sẽ được hiển thị ở đânfjksd
+                    sjkdfhjksdf
+                    sndkjfbjksdf
+                    shdfhskdfnls <br>
+                    hdksfksd
+                    <br>
+                    sbjtbkjsf
+                </p>
+                <div>
+                    <button class="btn btn-danger">Đặt Hàng</button>
+                </div>
             </div>
 
-        </div>  
+
+        </div>
+
+
+        <div class="product-detail">
+            <div class="product-detail-hl">
+                <h4>Đặc điểm nổi bật</h4>
+            </div>
+            <div class="product-detail-sp">
+                <h4>Thông số kỹ thuật</h4>
+                <table class="table">
+                    <tr>
+                        <td>cam trước</td>
+                        <td>50px</td>
+                    </tr>
+                    
+                </table>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    Launch
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                                  <div class="modal-header">
+                                          <h5 class="modal-title">Modal title</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                              </button>
+                                      </div>
+                              <div class="modal-body">
+                                  <div class="container-fluid">
+                                      <table class="table">
+
+                                          dsf
+                                          <tr>
+                                              <td>cam</td>
+                                              <td>50px</td>
+                                          </tr>
+                                          <tr>
+                                              <td>cam</td>
+                                              <td>50px</td>
+                                          </tr>
+                                      </table>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <script>
+                      $('#exampleModal').on('show.bs.modal', event => {
+                          var button = $(event.relatedTarget);
+                          var modal = $(this);
+                          // Use above variables to manipulate the DOM
+                          
+                      });
+                  </script>
+            </div>
+        </div>
     </div>
 
 
@@ -71,6 +156,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const thumbnails = document.querySelectorAll(".view_product_gallare img");
+            const mainImage = document.getElementById("main-product-img");
+
+            thumbnails.forEach((thumbnail) => {
+                thumbnail.addEventListener("click", function () {
+                    mainImage.src = this.src;
+
+                    thumbnails.forEach(img => img.style.border = "none");
+
+                    this.style.border = "2px solid red";
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

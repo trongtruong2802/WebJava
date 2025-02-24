@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <div>
+
+    
     <div class="container bg-color">
 
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -107,26 +110,23 @@
                 <h3>Smartphone</h3>
             </div>
             <div class="col-md-6 see-all-margin">
-                <h5>See All</h5>
+                <h5><a href="product_laptop">See All</a></h5>
             </div>
         </div>
         <!-- sản phẩm-->
         <div class="container first">
 
                <!-- đổ sản phẩm -->
-            <div class="card-deck">
-                <div class="card">
-                    <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
+               <div class="card-deck">
+                <div class="card" th:each="product : ${products}">
+                    <img th:src="@{'/images/phone/'+${product.image}}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${product.name}"></h5>
                         <p class="card-text" th:text="${product.introduce}"></p>
                         <h6 th:text="|$${product.price}|"></h6>
                         <button class="button-color">Buy Now →</button>
                     </div>
-                </div>               
-                
-
-            </div>
+                </div>  
 
         </div>
 
@@ -218,23 +218,11 @@
 
     </div>
 
+
+
 <footer>
     <small>©touhedul haque. All rights reserved 2020. practice e-commerce site by RAZz, Zürich, Switzerland.</small>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

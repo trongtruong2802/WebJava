@@ -20,23 +20,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 
 public class HomeController {
+
+	@Autowired
+	private ProductServices productservices;
+	
 	@GetMapping("/")
 	public String home(Model m) {
-		
 		List<Product> product = productservices.getAllproduct();
         m.addAttribute("products", product);
 		return "index";
 	}
-	
-	
-
-
-
-
-
-
-
-
 
 
 	@GetMapping("/login")
