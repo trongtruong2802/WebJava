@@ -569,6 +569,18 @@ body {
 }
 
 
+.search{
+    width: 50%;
+    display: flex;
+}
+.search input{
+width: 40%;
+}
+
+.card{
+    height: 700px;
+}
+
 footer {
     color: orchid;
     text-align: center;

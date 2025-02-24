@@ -54,12 +54,25 @@
 
     <div class="container">
 
-        <div class="form-group">
+        <div class="form-group search">
             <input type="search" id="search-input" class="form-control" placeholder="Tìm kiếm">
             <button class="btn btn-group" id="search-button">Tìm kiếm</button>
 
         </div>
 
+        
+        <div class="form-group">
+            <label for="sort-select">Sắp xếp theo giá:</label>
+            <select id="sort-select" class="form-control">
+                <option value="price-asc">Giá thấp đến cao</option>
+                <option value="price-desc">Giá cao đến thấp</option>
+            </select>
+        </div>
+        
+
+        <div class="loc-sp">
+
+        </div>
         <div class="container first">
             <div class="row">
                 <div class="col-md-3 col-sm-6 mb-4">
@@ -67,61 +80,53 @@
                         <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Iphone 11 pro</h5>
-                            <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                                design, various options, battery durability and 2 years service warantee.</p>
                             <h6>$999</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="col-md-3 col-sm-6 mb-4">
                     <div class="card product-card">
                         <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Iphone 11 pro</h5>
-                            <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                                design, various options, battery durability and 2 years service warantee.</p>
-                            <h6>$999</h6>
+                            
+                            <h6>$111</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="col-md-3 col-sm-6 mb-4">
                     <div class="card product-card">
                         <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Iphone 11 pro</h5>
-                            <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                                design, various options, battery durability and 2 years service warantee.</p>
-                            <h6>$999</h6>
+                            
+                            <h6>$223</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="col-md-3 col-sm-6 mb-4">
                     <div class="card product-card">
                         <img src="images/phone/phone-2.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Samsung Galaxy Note10+</h5>
-                            <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                                design, various options, battery durability and 2 years service warantee.</p>
-                            <h6>$999</h6>
+                            <h6>$143</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="col-md-3 col-sm-6 mb-4">
                     <div class="card product-card">
                         <img src="images/phone/phone-3.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Huawei P20</h5>
-                            <p class="card-text">Choose the top brands smartphone with latest version, new model, attractive
-                                design, various options, battery durability and 2 years service warantee.</p>
-                            <h6>$999</h6>
+                            <h6>$569</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
                     </div>
@@ -143,9 +148,9 @@
                 let searchValue = document.getElementById("search-input").value.toLowerCase().trim();
                 let products = document.querySelectorAll(".product-card"); // Chỉ lấy thẻ chứa sản phẩm
                 let rowContainer = document.querySelector(".row"); // Lấy div chứa danh sách sản phẩm
-    
+
                 let hasResult = false; // Kiểm tra có sản phẩm nào phù hợp không
-    
+
                 products.forEach(product => {
                     let productName = product.querySelector(".card-title").textContent.toLowerCase();
                     if (productName.includes(searchValue)) {
@@ -155,7 +160,7 @@
                         product.parentElement.style.display = "none"; // Ẩn sản phẩm không khớp
                     }
                 });
-    
+
                 // Nếu không có kết quả nào, có thể hiển thị thông báo
                 if (!hasResult) {
                     rowContainer.innerHTML = `<div class="col-12 text-center"><p>Không tìm thấy sản phẩm</p></div>`;
@@ -163,11 +168,33 @@
             });
         });
     </script>
-    
-    
-    
-    
-    
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sortSelect = document.getElementById("sort-select");
+        const productContainer = document.querySelector(".row");
+
+        sortSelect.addEventListener("change", function () {
+            let products = Array.from(document.querySelectorAll(".product-card"));
+
+            products.sort((a, b) => {
+                let priceA = parseFloat(a.querySelector("h6").textContent.replace("$", ""));
+                let priceB = parseFloat(b.querySelector("h6").textContent.replace("$", ""));
+
+                return sortSelect.value === "price-asc" ? priceA - priceB : priceB - priceA;
+            });
+
+            // Xóa sản phẩm cũ và thêm lại theo thứ tự mới
+            productContainer.innerHTML = "";
+            products.forEach(product => {
+                productContainer.appendChild(product.parentElement);
+            });
+        });
+    });
+</script>
+
 
 
 
