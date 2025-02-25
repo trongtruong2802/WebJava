@@ -49,6 +49,16 @@ public class HomeController {
 	public String getMethodName() {
 		return "view_product";
 	}
+
+	@GetMapping("/cart")
+	public String cart(){
+		return "cart";
+	}
+	
+	public String getMethodName(@RequestParam String param) {
+		return new String();
+	}
+	
 	
 	@GetMapping("/product_laptop")
 	public String product_laptop() {
