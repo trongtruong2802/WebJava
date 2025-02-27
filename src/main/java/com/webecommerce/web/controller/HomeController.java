@@ -23,23 +23,13 @@ public class HomeController {
 
 	@Autowired
 	private ProductServices productservices;
-
+	
 	@GetMapping("/")
 	public String home(Model m) {
 		List<Product> product = productservices.getAllproduct();
         m.addAttribute("products", product);
 		return "index";
 	}
-	
-	
-
-
-
-
-
-
-
-
 
 
 	@GetMapping("/login")
@@ -59,6 +49,19 @@ public class HomeController {
 	public String getMethodName() {
 		return "view_product";
 	}
+
+	@GetMapping("/cart")
+	public String cart(){
+		return "cart";
+	}
+	
+	public String getMethodName(@RequestParam String param) {
+		return new String();
+	}
 	
 	
+	@GetMapping("/product_laptop")
+	public String product_laptop() {
+		return "product_laptop";
+	}
 }
