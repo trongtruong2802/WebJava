@@ -1,0 +1,6 @@
+package com.webecommerce.web.services;
+
+@Services
+public interface ProductServices {
+
+}
