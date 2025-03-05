@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Admin Dashboard</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	
+	
+</head>
+
+<body>
+	<section>
+		<div class="indexAdmin container py-4">
+			<h3 class="text-center text-primary fw-bold mb-3">Admin Dashboard</h3>
+			<div class=" row ">
+				<!-- Add Product -->
+				<div class="col">
+					<a href="/admin/loadAddProduct" class="text-decoration-none">
+						<div class=" card-sh text-center border-0 bg-light p-3">
+							<div class="card-body">
+								<i class="fa-solid fa-square-plus text-success icon-box"></i>
+								<h6 class="fw-bold">Add Product</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Orders -->
+				<div class="col">
+					<a href="#" class="text-decoration-none">
+						<div class=" card-sh text-center border-0 bg-light p-3">
+							<div class="card-body">
+								<i class="fa-solid fa-table-list text-warning icon-box"></i>
+								<h6 class="fw-bold">Orders</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- User -->
+				<div class="col">
+					<a href="#" class="text-decoration-none">
+						<div class=" card-sh text-center border-0 bg-light p-3">
+							<div class="card-body">
+								<i class="fa-solid fa-users text-primary icon-box"></i>
+								<h6 class="fw-bold">User</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+			</div>
+			<div class="row">
+				<!-- Add Admin -->
+				<div class="col">
+					<a href="#" class="text-decoration-none">
+						<div class=" card-sh text-center border-0 bg-light p-3">
+							<div class="card-body">
+								<i class="fa-solid fa-user-tie text-danger icon-box"></i>
+								<h6 class="fw-bold">Add Admin</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- Add Category -->
+				<div class="col">
+					<a href="/admin/category" class="text-decoration-none">
+						<div class=" card-sh text-center border-0 bg-light p-3">
+							<div class="card-body">
+								<i class="fa-solid fa-list text-info icon-box"></i>
+								<h6 class="fw-bold">Add Category</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<!-- View Product -->
+				<div class="col">
+					<a href="#" class="text-decoration-none">
+						<div class=" card-sh text-center border-0 bg-light p-3">
+							<div class="card-body">
+								<i class="fa-solid fa-calendar text-secondary icon-box"></i>
+								<h6 class="fw-bold">View Product</h6>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+
+		</div>
+	</section>
+</body>
+
+</html>
