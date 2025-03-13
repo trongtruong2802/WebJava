@@ -66,8 +66,15 @@ public class HomeController {
 		return "cart";
 	}
 	
-	public String getMethodName(@RequestParam String param) {
-		return new String();
+	
+	@GetMapping("/pay")
+	public String pay() {
+		return "pay";
+	}
+
+	@GetMapping("/order")
+	public String order() {
+		return "order";
 	}
 	
 	
