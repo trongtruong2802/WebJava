@@ -17,53 +17,99 @@
     <div class="container">
         <div class="cart_head">
             <a href="cart"><i class="fa fa-long-arrow-left fa-2x"></i></a>
-            <p>Giỏ hàng của bạn</p>
+            <p>Thanh Toán</p>
         </div>
 
         <div class="cart_product">
-            <div class="row">
-                <div class="col-3">
-                    <img src="images/phone/phone-2.png" id="main-product-img" alt="Main product" class="img-fluid">
-                </div>
-                <div class="col-7">
-                    <div class="row">
-                        <p>iPhone 11 Pro Max</p>
+            <div class="col">
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Số lượng sản phẩm</h5>
                     </div>
-                    <div class="row">
-                        <p>Giá: 999đ</p>
+                    <div class="col-6 fl-right">
+                        <h5>2</h5>
                     </div>
                 </div>
-                <div class="col-2 d-flex align-items-center cart_dis">
-                    <button class="btn btn-outline-secondary btn-sm decrease">-</button>
-                    <input type="text" class="form-control text-center mx-1 quantity-input" value="1" readonly>
-                    <button class="btn btn-outline-secondary btn-sm increase">+</button>
-                    
-                    <a href="index" class="ml-2"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Tiền hàng</h5>
+                    </div>
+                    <div class="col-6 fl-right">
+                        <h5>28.000.000đ</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Phí vận chuyển</h5>
+                    </div>
+                    <div class="col-6 fl-right">
+                        <h5>Miễn phí</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Tổng tiền</h5>
+                    </div>
+                    <div class="col-6 fl-right">
+                        <h5>28.000.000đ</h5>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="info_pay mt-5">
+            <h4>THÔNG TIN THANH TOÁN</h4>
+            <div class="cart_product">
+
+            </div>
+        </div>
+
+        <div class="info_pay mt-5">
+            <h4>THÔNG TIN NHẬN HÀNG</h4>
+            <div class="cart_product">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Khách hàng</h5>
+                        </div>
+                        <div class="col-6 fl-right">
+                            <h5>Vũ Trọng Trường</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Số điện thoại</h5>
+                        </div>
+                        <div class="col-6 fl-right">
+                            <h5>0348499426</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Email</h5>
+                        </div>
+                        <div class="col-6 fl-right">
+                            <h5>trongtruong@gmail.com</h5>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>Địa chỉ nhận hàng</h5>
+                        </div>
+                        <div class="col-6 fl-right">
+                            <h5>96//9/7, đường số 1, phường 4, Quận Gò Vấp, Tp Hồ Chí Minh</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let cart = document.querySelector(".cart_product");
 
-            cart.addEventListener("click", function (event) {
-                if (event.target.classList.contains("increase")) {
-                    let input = event.target.closest(".cart_dis").querySelector(".quantity-input");
-                    let value = parseInt(input.value);
-                    input.value = value + 1;
-                } 
-                else if (event.target.classList.contains("decrease")) {
-                    let input = event.target.closest(".cart_dis").querySelector(".quantity-input");
-                    let value = parseInt(input.value);
-                    if (value > 1) {
-                        input.value = value - 1;
-                    }
-                }
-            });
-        });
-    </script>
+
+
 
 </body>
 
