@@ -16,7 +16,7 @@ public class AdminController {
     //localhost:5000/admin
     @GetMapping("/")
     public String admin() {
-        return "admin/index";
+        return "admin/indexAdmin";
     }
     //localhost:5000/admin/product
     @GetMapping("/product")
