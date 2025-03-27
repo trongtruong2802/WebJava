@@ -2,6 +2,54 @@
     box-sizing: inherit;
 }
 
+
+/*menu*/
+
+.dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #a2d7ec
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*menu*/
+
 .container {
     margin-bottom: 80px;
 }
@@ -32,6 +80,11 @@
 .see-all-margin {
     text-align: right;
     color: orange;
+}
+
+.margin-down .see-all-margin a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .margin-down {
@@ -603,7 +656,10 @@ body {
 
 .card {
     height: 700px;
+    border-radius: 15px !important;
 }
+
+
 
 .cart_product {
     display: flex;
@@ -624,8 +680,9 @@ body {
     display: flex;
 }
 
-.cart_head p {
+.cart_head h4 {
     margin-left: 40%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .cart_product .row {
@@ -724,15 +781,31 @@ body {
 .info .cart_product .row {
     width: 100%;
 }
+.info .ml{
+    margin-left: 150px;
+}
+
+.address .ml{
+    margin-left: 150px;
+}
 
 .sdt {
     text-align: right;
+}
+
+
+.cart_product_text{
+    font-size: 18px;
+    font-weight: 600px;
 }
 
 /*pay*/
 
 .fl-right {
     text-align: right;
+}
+.info_pay .ml{
+    margin-left: 150px;
 }
 
 
@@ -745,8 +818,39 @@ body {
     width: 100%;
 }
 
-.card-user .row .col-md-2{
+.card-user .row .col-md-2 {
     text-align: right;
+}
+
+.related-tag {
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #444;
+    float: right;
+    font-size: 13px;
+    height: 34px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+/*tanggiam*/
+.quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-container button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.quantity-container input {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
 }
 
 /*footer*/

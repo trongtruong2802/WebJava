@@ -14,12 +14,12 @@ public class AdminController {
 
     
     //localhost:5000/admin
-    @GetMapping("/")
+    @GetMapping("")
     public String admin() {
         return "admin/indexAdmin";
     }
-    //localhost:5000/admin/product
-    @GetMapping("/product")
+    //localhost:5000/admin/add_product
+    @GetMapping("/add_product")
     public String product() {
         return "/admin/add_product";
     }
@@ -28,6 +28,18 @@ public class AdminController {
     public String category() {
         return "/admin/category";
     }
+    
+    @GetMapping("/orderAdmin")
+    public String orderAdmin() {
+        return "/admin/orderAdmin";
+    }
+
+
+    @GetMapping("/user")
+    public String user() {
+        return "/admin/user";
+    }
+    
     
     
 }

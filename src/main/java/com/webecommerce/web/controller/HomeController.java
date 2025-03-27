@@ -31,27 +31,6 @@ public class HomeController {
 		return "index";
 	}
 
-	@GetMapping("/indexAdmin")
-	public String indexAdmin() {
-		return"admin/indexAdmin";
-	}
-	
-	@GetMapping("/add_product")
-	public String add_product() {
-		return"/admin/add_product";
-	}
-
-	@GetMapping("/order")
-	public String orders() {
-		return"/admin/order";
-	}
-
-	@GetMapping("/user")
-	public String user() {
-		return"/admin/user";
-	}
-
-
 	@GetMapping("/index")
 	public String index() {
 		return "index";
