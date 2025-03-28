@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{base::layout(~{::section})}">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -11,7 +9,7 @@
 			<div class="row">
 				<p class="text-center fs-3 mt-2">All Orders</p>
 				<hr>
-				<a href="/admin/" class="text-decoration-none"><i
+				<a href="/admin" class="text-decoration-none"><i
 					class="fa-solid fa-arrow-left"></i> Back</a>
 				<th:block th:if="${session.succMsg}">
 					<p class="text-success fw-bold text-center">[[${session.succMsg}]]</p>
@@ -167,7 +165,7 @@
 							</th:block>
 						</tbody>
 					</table>
-					<th:block th:if="${!srch}">
+					<th:block th:if="${srch != null and !srch}"					>
 						<div class="row">
 							<div class="col-md-4">Total Orders : [[${totalElements}]]</div>
 							<div class="col-md-6">

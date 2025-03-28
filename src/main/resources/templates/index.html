@@ -55,7 +55,7 @@
 
                         </li>
 
-                      
+
                     </ul>
                 </div>
             </nav>
@@ -138,18 +138,20 @@
             <div class="container first">
 
                 <!-- đổ sản phẩm -->
-                <div class="card-deck">
-                    <div class="card" th:each="product : ${products}">
-                        <img th:src="@{'/images/phone/'+${product.image}}" class="card-img-top" alt="Product Image">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${product.name}"></h5>
-                            <p class="card-text" th:text="${product.introduce}"></p>
-                            <h6 th:text="|$${product.price}|"></h6>
-                            <button class="button-color">Buy Now →</button>
+                <a href="view_product">
+                    <div class="card-deck">
+                        <div class="card" th:each="product : ${products}">
+                            <img th:src="@{'/images/phone/'+${product.image}}" class="card-img-top" alt="Product Image">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${product.name}"></h5>
+                                <p class="card-text" th:text="${product.introduce}"></p>
+                                <h6 th:text="|$${product.price}|"></h6>
+                                <button class="button-color">Buy Now →</button>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                </a>
 
                 <!--danh mục -->
                 <div class="row align-items-center margin-down">

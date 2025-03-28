@@ -30,7 +30,7 @@ public class AdminController {
     }
     
     @GetMapping("/orderAdmin")
-    public String orderAdmin() {
+    public String orderadmin() {
         return "/admin/orderAdmin";
     }
 
