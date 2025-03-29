@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#product">Product</a>
@@ -60,7 +60,7 @@
 
         </div>
 
-        
+
         <div class="form-group">
             <label for="sort-select">Sắp xếp theo giá:</label>
             <select id="sort-select" class="form-control">
@@ -68,7 +68,7 @@
                 <option value="price-desc">Giá cao đến thấp</option>
             </select>
         </div>
-        
+
 
         <div class="loc-sp">
 
@@ -91,7 +91,7 @@
                         <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Iphone 11 pro</h5>
-                            
+
                             <h6>$111</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
@@ -103,7 +103,7 @@
                         <img src="images/phone/phone-1.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Iphone 11 pro</h5>
-                            
+
                             <h6>$223</h6>
                             <button class="button-color">Buy Now →</button>
                         </div>
@@ -143,9 +143,45 @@
 
 
     <script>
+        const productsList = [
+            "Laptop Dell XPS 13",
+            "MacBook Pro 14",
+            "iPhone 15 Pro",
+            "Samsung Galaxy S24",
+            "Tai nghe Sony WH-1000XM5",
+            "Chuột Logitech MX Master 3S",
+            "Bàn phím cơ Keychron K6",
+            "Màn hình LG UltraFine 5K",
+            "SSD Samsung 980 Pro",
+            "Apple iPad Pro 12.9"
+        ];
+
+        const searchInput = document.getElementById("search-input");
+        const searchButton = document.getElementById("search-button");
+        const suggestionsBox = document.createElement("ul");
+        suggestionsBox.classList.add("suggestions-list");
+        document.querySelector(".search").appendChild(suggestionsBox);
+
         document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("search-button").addEventListener("click", function () {
-                let searchValue = document.getElementById("search-input").value.toLowerCase().trim();
+            searchInput.addEventListener("input", () => {
+                const query = searchInput.value.toLowerCase();
+                suggestionsBox.innerHTML = "";
+                if (query) {
+                    const filteredProducts = productsList.filter(product => product.toLowerCase().includes(query));
+                    filteredProducts.forEach(product => {
+                        const suggestionItem = document.createElement("li");
+                        suggestionItem.textContent = product;
+                        suggestionItem.addEventListener("click", () => {
+                            searchInput.value = product;
+                            suggestionsBox.innerHTML = "";
+                        });
+                        suggestionsBox.appendChild(suggestionItem);
+                    });
+                }
+            });
+
+            searchButton.addEventListener("click", function () {
+                let searchValue = searchInput.value.toLowerCase().trim();
                 let products = document.querySelectorAll(".product-card"); // Chỉ lấy thẻ chứa sản phẩm
                 let rowContainer = document.querySelector(".row"); // Lấy div chứa danh sách sản phẩm
 
@@ -161,39 +197,64 @@
                     }
                 });
 
-                // Nếu không có kết quả nào, có thể hiển thị thông báo
+                // Nếu không có kết quả nào, hiển thị thông báo
                 if (!hasResult) {
                     rowContainer.innerHTML = `<div class="col-12 text-center"><p>Không tìm thấy sản phẩm</p></div>`;
                 }
             });
         });
+
+        // CSS để hiển thị danh sách gợi ý
+        const style = document.createElement("style");
+        style.innerHTML = `
+    .suggestions-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 50px;
+        border: 1px solid #ddd;
+        max-height: 150px;
+        overflow-y: auto;
+        background: white;
+        position: absolute;
+        width: 100%;
+        z-index: 1000;
+    }
+    .suggestions-list li {
+        padding: 8px;
+        cursor: pointer;
+    }
+    .suggestions-list li:hover {
+        background: #f0f0f0;
+    }
+`;
+        document.head.appendChild(style);
     </script>
 
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const sortSelect = document.getElementById("sort-select");
-        const productContainer = document.querySelector(".row");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sortSelect = document.getElementById("sort-select");
+            const productContainer = document.querySelector(".row");
 
-        sortSelect.addEventListener("change", function () {
-            let products = Array.from(document.querySelectorAll(".product-card"));
+            sortSelect.addEventListener("change", function () {
+                let products = Array.from(document.querySelectorAll(".product-card"));
 
-            products.sort((a, b) => {
-                let priceA = parseFloat(a.querySelector("h6").textContent.replace("$", ""));
-                let priceB = parseFloat(b.querySelector("h6").textContent.replace("$", ""));
+                products.sort((a, b) => {
+                    let priceA = parseFloat(a.querySelector("h6").textContent.replace("$", ""));
+                    let priceB = parseFloat(b.querySelector("h6").textContent.replace("$", ""));
 
-                return sortSelect.value === "price-asc" ? priceA - priceB : priceB - priceA;
-            });
+                    return sortSelect.value === "price-asc" ? priceA - priceB : priceB - priceA;
+                });
 
-            // Xóa sản phẩm cũ và thêm lại theo thứ tự mới
-            productContainer.innerHTML = "";
-            products.forEach(product => {
-                productContainer.appendChild(product.parentElement);
+                // Xóa sản phẩm cũ và thêm lại theo thứ tự mới
+                productContainer.innerHTML = "";
+                products.forEach(product => {
+                    productContainer.appendChild(product.parentElement);
+                });
             });
         });
-    });
-</script>
+    </script>
 
 
 
