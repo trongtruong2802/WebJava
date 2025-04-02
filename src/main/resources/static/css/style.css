@@ -660,7 +660,6 @@ body {
 }
 
 
-
 .cart_product {
     display: flex;
     justify-content: space-between;
@@ -709,6 +708,7 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border-radius: 10px;
     padding: 15px;
+    height: auto !important;
 }
 
 .card-sh:hover {

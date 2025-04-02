@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
 
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/style.css">
+
+
 </head>
 
 <body>
@@ -29,72 +34,94 @@
 
 						</div>
 						<div class="card-body">
-							<form action="/admin/saveProduct" method="post" enctype="multipart/form-data">
+							<form id="productForm" action="/admin/saveProduct" method="post"
+								enctype="multipart/form-data">
 								<div class="mb-3">
-									<label>Tên Sản Phẩm</label> <input type="text" name="title" class="form-control">
+									<label>Tên Sản Phẩm</label>
+									<input type="text" id="title" name="title" class="form-control">
+									<small class="text-danger d-none" id="titleError">Tên sản phẩm không được để
+										trống!</small>
 								</div>
 
 								<div class="mb-3">
 									<label>Mô tả sản phẩm</label>
-									<textarea rows="3" cols="" class="form-control" name="description"></textarea>
+									<textarea rows="3" class="form-control" id="description"
+										name="description"></textarea>
+									<small class="text-danger d-none" id="descError">Mô tả sản phẩm không được để
+										trống!</small>
 								</div>
 
 								<div class="mb-3">
-									<label>Danh mục</label> <select class="form-control" name="category">
-										<option>--select--</option>
-										<option th:each="c:${categories}">[[${c.name}]]</option>
+									<label>Danh mục</label>
+									<select class="form-control" id="category" name="category">
+										<option value="">--select--</option>
+										<option value="laptop">Máy Tính</option>
+										<option value="phone">Điện Thoại</option>
 									</select>
+									<small class="text-danger d-none" id="categoryError">Vui lòng chọn danh mục!</small>
 								</div>
 
 								<div class="mb-3">
-									<label>Giá</label> <input type="text" name="price" class="form-control">
+									<label>Giá</label>
+									<input type="text" id="price" name="price" class="form-control">
+									<small class="text-danger d-none" id="priceError">Giá sản phẩm không được để
+										trống!</small>
 								</div>
-
-								<div class="mb-3 col">
-									<label>Hình ảnh</label> <input type="file" name="file" class="form-control">
-								</div>
-
 
 								<div class="mb-3">
-									<label>Thông số kỹ thuật</label>
-									
-									<table class="table table-borderless ">
-										
-										<tr>
-											<caption class="caption-top"><b>Bộ xử lý đồ họa</b></caption>
-											<td>Loại card đồ họa</td>
-											<td>AMD Radeon™ Graphics</td>
-										</tr>
+									<label>Hình ảnh</label>
+									<input type="file" id="file" name="file" class="form-control">
+									<small class="text-danger d-none" id="fileError">Vui lòng chọn hình ảnh!</small>
+								</div>
+								<div class="mb-3">
+									<label for="">Thông số kỹ thuật</label>
+									<!-- Bảng thông số kỹ thuật cho Máy Tính -->
+									<table class="table table-borderless" id="laptop-specs" style="display: none;">
+										<caption class="caption-top"><b>Thông số Máy Tính</b></caption>
 										<tr>
 											<td>Loại CPU</td>
 											<td><input type="text" class="input-group-text"></td>
 										</tr>
-
 									</table>
 
+									<!-- Bảng thông số kỹ thuật cho Điện Thoại -->
+									<table class="table table-borderless" id="phone-specs" style="display: none;">
+										<caption class="caption-top"><b>Thông số Điện Thoại</b></caption>
+										<tr>
+											<td>Hệ điều hành</td>
+											<td><input type="text" class="input-group-text"></td>
+										</tr>
+									</table>
 								</div>
 
-
-								<button class="btn btn-primary col-md-12">Submit</button>
+								<button type="submit" class="btn btn-primary col-md-12">Submit</button>
 							</form>
+
 						</div>
 					</div>
 				</div>
+
+
+
 			</div>
 		</div>
+
+		<script src="/js/indexAdmin.js"></script>
+
+		<script>
+			document.getElementById("category").addEventListener("change", function () {
+				let category = this.value;
+				document.getElementById("laptop-specs").style.display = category === "laptop" ? "table" : "none";
+				document.getElementById("phone-specs").style.display = category === "phone" ? "table" : "none";
+			});
+		</script>
+
 	</section>
 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-sihTOnlNFpD/tI7FwbPka/jvDZO9g4N/0rTjYZP4Ik3MzB/kuNhjAKeM6WoZGVmI"
+		crossorigin="anonymous"></script>
 
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-		crossorigin="anonymous"></script>
 </body>
 
 </html>
