@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="container bg-color">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="images/logo.png" alt="Logo" style="height: 40px;">
+                    </a>
+
+                    <!-- Nút thu gọn menu khi trên mobile -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Các mục trong navbar -->
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Trang chủ</a>
+                            </li>
+
+                            <!-- Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Danh mục
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                    <a class="dropdown-item" href="#">Link 1</a>
+                                    <a class="dropdown-item" href="#">Link 2</a>
+                                    <a class="dropdown-item" href="#">Link 3</a>
+                                </div>
+                            </li>
+
+                            <!-- Tìm kiếm -->
+                            <!-- Tìm kiếm -->
+                            <li class="nav-item position-relative">
+                                <form class="form-inline my-2 my-lg-0 ml-3 position-relative" id="search-form">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm"
+                                        id="search-input" aria-label="Search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"
+                                        id="search-button">Tìm</button>
+                                    <ul id="suggestions" class="suggestions-list"></ul>
+                                </form>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="cart">Giỏ hàng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login">Đăng nhập</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </nav>
+
+
+    <div th:replace="${content}">
+    </div>
+
+
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container">
+            <div class="row text-center text-md-left">
+                <!-- Cột 1 -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Về chúng tôi</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Trang chủ</a></li>
+                        <li><a href="#" class="text-light">Sản phẩm</a></li>
+                        <li><a href="#" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Cột 2 -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Hỗ trợ khách hàng</h5>
+                    <ul class="list-unstyled">
+                        <li>Mua hàng & bảo hành: <strong>1800.2097</strong> (7h30 - 22h)</li>
+                        <li>Khiếu nại: <strong>1800.2063</strong> (8h - 21h30)</li>
+                    </ul>
+                </div>
+    
+                <!-- Cột 3 -->
+                <div class="col-md-4 mb-3">
+                    <h5 class="text-uppercase">Thanh toán</h5>
+                    <ul class="list-unstyled d-flex justify-content-center justify-content-md-start gap-3">
+                        <li><img src="images/momo.png" alt="MoMo" width="40"></li>
+                        <li><img src="images/zalopay.png" alt="ZaloPay" width="40"></li>
+                        <!-- Add more logos if needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        const products = [
+            "Laptop Dell XPS 13",
+            "MacBook Pro 14",
+            "iPhone 15 Pro",
+            "Samsung Galaxy S24",
+            "Tai nghe Sony WH-1000XM5",
+            "Chuột Logitech MX Master 3S",
+            "Bàn phím cơ Keychron K6",
+            "Màn hình LG UltraFine 5K",
+            "SSD Samsung 980 Pro",
+            "Apple iPad Pro 12.9"
+        ];
+
+        const searchInput = document.getElementById("search-input");
+        const searchButton = document.getElementById("search-button");
+        const suggestionsBox = document.getElementById("suggestions");
+
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            suggestionsBox.innerHTML = "";
+            if (query) {
+                const filteredProducts = products.filter(product => product.toLowerCase().includes(query));
+                filteredProducts.forEach(product => {
+                    const suggestionItem = document.createElement("li");
+                    suggestionItem.textContent = product;
+                    suggestionItem.classList.add("suggestion-item");
+                    suggestionItem.addEventListener("click", () => {
+                        searchInput.value = product;
+                        suggestionsBox.innerHTML = "";
+                    });
+                    suggestionsBox.appendChild(suggestionItem);
+                });
+            }
+        });
+
+        searchButton.addEventListener("click", () => {
+            const query = searchInput.value.toLowerCase();
+            const results = products.filter(product => product.toLowerCase().includes(query));
+            alert("Kết quả tìm kiếm:\n" + (results.length ? results.join("\n") : "Không tìm thấy sản phẩm"));
+            suggestionsBox.innerHTML = "";
+        });
+
+        // Ẩn gợi ý khi click ra ngoài
+        document.addEventListener("click", (e) => {
+            if (!document.getElementById("search-form").contains(e.target)) {
+                suggestionsBox.innerHTML = "";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

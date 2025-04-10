@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="headfoot::layout(~{::section})">
 
 <head>
     <meta charset="UTF-8">
@@ -7,62 +7,13 @@
     <title>Hot Gadgets</title>
     <link rel="icon" type="image/png" href="images/fav-icon.png">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  
 </head>
 
 <body>
-    <div>
 
-
-        <div class="container bg-color">
-
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""></a>
-
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="cart">Giỏ Hàng</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login">Đăng nhập</a>
-                        </li>
-                        <li>
-                            <div class="dropdown">
-                                <a class="nav-link dropbtn" href="/">Danh mục</a>
-                                <div class="dropdown-content">
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="form-group search" style="position: relative;">
-                                <input type="search" id="search-input" class="form-control" placeholder="Tìm kiếm">
-                                <button class="btn btn-group" id="search-button">Tìm kiếm</button>
-                            </div>
-
-                        </li>
-
-
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
+    <section>
         <div class="container bg-image">
-
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -138,20 +89,34 @@
             <div class="container first">
 
                 <!-- đổ sản phẩm -->
-                <a href="view_product">
-                    <div class="card-deck">
-                        <div class="card" th:each="product : ${products}">
-                            <img th:src="@{'/images/phone/'+${product.image}}" class="card-img-top" alt="Product Image">
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="${product.name}"></h5>
-                                <p class="card-text" th:text="${product.introduce}"></p>
-                                <h6 th:text="|$${product.price}|"></h6>
-                                <button class="button-color">Buy Now →</button>
-                            </div>
-                        </div>
 
+                <div class="product">
+                    <div class="index_product">
+                        <a href="view_product">
+                            <div class="card-deck">
+                                <div class="card" th:each="product : ${products}">
+                                    <img th:src="@{'/images/phone/'+${product.image}}" class="card-img-top"
+                                        alt="Product Image">
+                                    <div class="card-body">
+                                        <div class="title">
+                                            <h5 class="card-title" th:text="${product.name}"></h5>
+                                        </div>
+                                        <div class="introduce">
+                                            <p class="card-text" th:text="${product.introduce}"></p>
+                                        </div>
+                                        <div class="price">
+                                            <h6 th:text="|$${product.price}|"></h6>
+                                        </div>
+
+                                        <button class="button-color">Buy Now →</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
                     </div>
-                </a>
+                </div>
+
 
                 <!--danh mục -->
                 <div class="row align-items-center margin-down">
@@ -244,99 +209,7 @@
 
             </div>
 
-
-
-            <footer>
-                <small>©touhedul haque. All rights reserved 2020. practice e-commerce site by RAZz, Zürich,
-                    Switzerland.</small>
-            </footer>
-
-
-
-
-
-
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-                crossorigin="anonymous"></script>
-
-
-            <script>
-                const products = [
-                    "Laptop Dell XPS 13",
-                    "MacBook Pro 14",
-                    "iPhone 15 Pro",
-                    "Samsung Galaxy S24",
-                    "Tai nghe Sony WH-1000XM5",
-                    "Chuột Logitech MX Master 3S",
-                    "Bàn phím cơ Keychron K6",
-                    "Màn hình LG UltraFine 5K",
-                    "SSD Samsung 980 Pro",
-                    "Apple iPad Pro 12.9"
-                ];
-
-                const searchInput = document.getElementById("search-input");
-                const searchButton = document.getElementById("search-button");
-                const suggestionsBox = document.createElement("ul");
-                suggestionsBox.classList.add("suggestions-list");
-                document.querySelector(".search").appendChild(suggestionsBox);
-
-                searchInput.addEventListener("input", () => {
-                    const query = searchInput.value.toLowerCase();
-                    suggestionsBox.innerHTML = "";
-                    if (query) {
-                        const filteredProducts = products.filter(product => product.toLowerCase().includes(query));
-                        filteredProducts.forEach(product => {
-                            const suggestionItem = document.createElement("li");
-                            suggestionItem.textContent = product;
-                            suggestionItem.addEventListener("click", () => {
-                                searchInput.value = product;
-                                suggestionsBox.innerHTML = "";
-                            });
-                            suggestionsBox.appendChild(suggestionItem);
-                        });
-                    }
-                });
-
-                searchButton.addEventListener("click", () => {
-                    const query = searchInput.value.toLowerCase();
-                    const results = products.filter(product => product.toLowerCase().includes(query));
-                    alert("Kết quả tìm kiếm:\n" + (results.length ? results.join("\n") : "Không tìm thấy sản phẩm"));
-                });
-
-                // CSS để hiển thị danh sách gợi ý
-                const style = document.createElement("style");
-                style.innerHTML = `
-                        .suggestions-list {
-                            list-style: none;
-                            padding: 0;
-                            margin-top: 50px;
-                            border: 1px solid #ddd;
-                            max-height: 150px;
-                            overflow-y: auto;
-                            background: white;
-                            position: absolute;
-                            width: 100%;
-                            z-index: 1000;
-                        }
-                        .suggestions-list li {
-                            padding: 8px;
-                            cursor: pointer;
-                        }
-                        .suggestions-list li:hover {
-                            background: #f0f0f0;
-                        }
-                    `;
-                document.head.appendChild(style);
-            </script>
-
-
+    </section>
 </body>
 
 </html>

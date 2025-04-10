@@ -13,6 +13,28 @@
 
 }
 
+
+.navbar-brand img {
+    max-height: 40px;
+}
+
+.dropdown-menu {
+    min-width: 150px;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.navbar{
+    height: 100px !important;
+}
+.navbar .container{
+    margin-top: 80px;
+}
+
+
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
@@ -650,14 +672,47 @@ body {
     display: flex;
 }
 
+
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+
 .search input {
     width: 40%;
 }
 
 .card {
-    height: 700px;
+    height: 600px;
     border-radius: 15px !important;
 }
+
+.card .title {
+    height: 50px;
+}
+
+
 
 
 .cart_product {
@@ -781,11 +836,12 @@ body {
 .info .cart_product .row {
     width: 100%;
 }
-.info .ml{
+
+.info .ml {
     margin-left: 150px;
 }
 
-.address .ml{
+.address .ml {
     margin-left: 150px;
 }
 
@@ -794,7 +850,7 @@ body {
 }
 
 
-.cart_product_text{
+.cart_product_text {
     font-size: 18px;
     font-weight: 600px;
 }
@@ -804,7 +860,8 @@ body {
 .fl-right {
     text-align: right;
 }
-.info_pay .ml{
+
+.info_pay .ml {
     margin-left: 150px;
 }
 
@@ -854,12 +911,12 @@ body {
 }
 
 
-.first a{
+.first a {
     text-decoration: none;
     color: #555;
 }
 
-.first a:hover{
+.first a:hover {
     text-decoration: none;
     color: #555;
 }
@@ -867,6 +924,26 @@ body {
 
 /*footer*/
 footer {
-    color: orchid;
+    background-color: #333;
+    color: white;
     text-align: center;
+    font-weight: 700;
+    font-size: 19px;
 }
+
+
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #f8d100;
+}
+
+.footer ul {
+    padding-left: 0;
+}
+
+.footer ul li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
