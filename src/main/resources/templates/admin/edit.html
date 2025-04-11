@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="col-md-12 ">
+                <div class="card card-sh">
+                    <div class="row">
+                        <div class="col">Tên Sản Phẩm</div>
+                        <div class="col">Hình ảnh</div>
+                        <div class="col">Giá</div>
+                        <div class="col"></div>
+                    </div>
+
+                    <div class="row edit_text">
+                        <div class="col">Samsung galaxy note 20</div>
+                        <div class="col "><img src="/images/laptop/product-1.png" alt="" class="edit_img"></div>
+                        <div class="col">Giá</div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                 </div>
+                                <div class="col"><i class="fa-solid fa-trash"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Chỉnh Sửa Sản Phẩm</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                <button type="button" class="btn btn-primary">Lưu Thay Đổi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>

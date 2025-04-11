@@ -40,6 +40,10 @@ public class AdminController {
         return "/admin/user";
     }
     
+    @GetMapping("/edit")
+    public String edit() {
+        return "/admin/edit";
+    }
     
     
 }
